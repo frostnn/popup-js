@@ -1,0 +1,40 @@
+.modale-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgb(0, 0, 0, 0.5);
+}
+
+.modale-window {
+  width: 600px;
+  height: 300px;
+  border-radius: 5px;
+  background: #fff;
+  margin: 200px auto;
+}
+
+.modale-window_header {
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.modale-window_header-title {
+  font-size: 1.5rem;
+}
+
+.modale-close {
+  cursor: pointer;
+}
+
+.modale-window_body {
+  padding: 10px;
+}
+
+.modale-window_footer {
+  padding: 5px 10px;
+  border-top: 1px solid #eee;
+}
