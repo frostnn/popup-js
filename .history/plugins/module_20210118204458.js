@@ -26,21 +26,20 @@ const _createModal = (option) => {
 }
 
 $.modal = (options) => {
-const ANIMATION_SPEED = 300;
+const ANIMATION_SPEED = 200;
 const $modal = _createModal(options);
-let closing = true;
 
   return {
     open() {
-      !closing && $modal.classList.add('open');
+      $modal.classList.add('open');
     },
     close() {
-      closing = false;
       $modal.classList.remove('open');
       $modal.classList.add('hide');
-      setTimeout( () => {
+      setTimeout(()=> {
         $modal.classList.remove('hide');
-      }, ANIMATION_SPEED)
+      },ANIMATION_SPEED)
+      
     },
     destroy() {
 

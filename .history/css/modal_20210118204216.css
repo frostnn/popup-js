@@ -2,12 +2,6 @@
 
 }
 
-.modale.hide .modale-window,
-.modale.hide .modale-overlay {
-  opacity: 1;
-  z-index: 100;
-}
-
 .modale.open .modale-window,
 .modale.open .modale-overlay {
   opacity: 1;
@@ -24,10 +18,12 @@
 
 .modale.hide .modale-overlay{
   background: rgb(0, 0, 0, 0);
+  opacity: 0;
+  z-index: -1;
 }
 
 .modale.hide .modale-window{
-  transform: translateY(-200px);
+  transform: translateY(-210px);
 }
 
 

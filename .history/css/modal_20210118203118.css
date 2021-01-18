@@ -1,51 +1,26 @@
 .modale {
 
 }
-
-.modale.hide .modale-window,
-.modale.hide .modale-overlay {
-  opacity: 1;
-  z-index: 100;
-}
-
 .modale.open .modale-window,
 .modale.open .modale-overlay {
   opacity: 1;
   z-index: 10;
 }
-
-.modale.open .modale-window{
+.modale.open {
   transform: translateY(100px);
 }
-
-.modale.open .modale-overlay{
-  background: rgb(0, 0, 0, 0.5);
-}
-
-.modale.hide .modale-overlay{
-  background: rgb(0, 0, 0, 0);
-}
-
-.modale.hide .modale-window{
-  transform: translateY(-200px);
-}
-
-
-
 .modale-window,
 .modale-overlay {
   opacity: 0;
   z-index: -1;
 }
-
 .modale-overlay {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgb(0, 0, 0, 0);
-  transition: background 0.3s ease-in;
+  background: rgb(0, 0, 0, 0.5);
 }
 
 .modale-window {
@@ -54,7 +29,7 @@
   border-radius: 5px;
   background: #fff;
   margin: 0 auto;
-  transform: translateY(-200px);
+  transform: translateY(-300px);
   transition: transform .3s ease-in;
 }
 
