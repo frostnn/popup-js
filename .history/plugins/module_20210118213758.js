@@ -32,7 +32,7 @@ let closing = true;
 
   return {
     open() {
-      closing && $modal.classList.add('open');
+      !closing && $modal.classList.add('open');
     },
     close() {
       closing = false;

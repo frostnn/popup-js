@@ -1,17 +1,17 @@
-const _createModal = (options) => {
+const _createModal = (option) => {
   const DEFAULT_WIDTH = '600px'
   const modal = document.createElement('div');
   modal.classList.add('modale');
   modal.insertAdjacentHTML('afterbegin', `
 
     <div class="modale-overlay">
-      <div class="modale-window" style="width: ${options.width || DEFAULT_WIDTH}">
+      <div class="modale-window" style="width: ${option.content || DEFAULT_WIDTH}">
         <div class="modale-window_header">
-          <span class="modale-window_header-title">${options.title || 'Title' }</span>
-          ${options.closable ? `<span class="modale-close">&times;</span>` : '' }
+          <span class="modale-window_header-title">${option.content || 'Title' }</span>
+          ${option.closable ? `<span class="modale-close">&times;</span>` : '' }
         </div>
         <div class="modale-window_body">
-          ${options.content || '' }
+          ${option.content || '' }
         </div>
         <div class="modale-window_footer">
           <button>OK</button>
@@ -25,14 +25,14 @@ const _createModal = (options) => {
   return modal;
 }
 
-$.modal = (options) => {
+$.modal = (option) => {
 const ANIMATION_SPEED = 300;
-const $modal = _createModal(options);
+const $modal = _createModal(option);
 let closing = true;
 
   return {
     open() {
-      closing && $modal.classList.add('open');
+      !closing && $modal.classList.add('open');
     },
     close() {
       closing = false;

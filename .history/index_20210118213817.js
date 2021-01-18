@@ -1,6 +1,9 @@
 const modal = $.modal({
   title: 'Modal title',
   closable: true,
-  content: '<p>Modal is working</p>',
+  content: `
+  <h4>Modal is working</h4>
+  <p>Lorem ipsum dolor sit.</p>
+  `,
   width: '400px'
 }); 
