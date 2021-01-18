@@ -17,7 +17,6 @@ const modal = $.modal({
       type: 'danger',
       handler() {
         console.log('Danger btn clicked')
-        modal.close()
       }
     },
   ]

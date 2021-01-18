@@ -3,7 +3,7 @@ Element.prototype.appendAfter = function(element) {
 }
 
 const noop = () => {
-
+  
 }
 
 const _createModalFooter = (buttons = []) => {
@@ -20,8 +20,6 @@ const _createModalFooter = (buttons = []) => {
     $btn.classList.add("btn");
     $btn.classList.add(`btn-${btn.type || "secondary"}`);
     $btn.onclick = btn.handler || webkitConvertPointFromNodeToPage;
-
-    wrap.appendChild($btn);
   })
 
   return wrap;
