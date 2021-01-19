@@ -18,33 +18,35 @@ const house = [
     text: 'The Martells are one of the great houses of Westeros, rulers of Dorne. Traditionally, the head of the house and members of his family are called "princes"and " princesses". On their coat of arms is a red sun pierced by a golden spear. The Martells motto is Unyielding, unyielding, unyielding. The Martells rule Dorne from Sunspear Castle.',
   },
 ]
-
 const toHTML = houses => `
   <div class="col-4">
     <div class="card">
       <img src="${houses.img}" class="card-img-top" alt="${houses.title}">
       <div class="card-body">
         <h5 class="card-title">${houses.title}</h5>
-          <a href="#" class="btn btn-primary" data-btn="view">view</a>
+          <a href="#" class="btn btn-primary">view</a>
           <a href="#" class="btn btn-danger">remove</a>
       </div>
     </div>
   </div>
 `
+
+
 const render = () => {
   const html = house.map( houses => toHTML(houses)).join('');
   document.querySelector('#house').innerHTML = html;
 }
 
-render();
+render()
 
-const houseModal = $.modal({
-  title: 'Seven Kingdoms',
+const modal = $.modal({
+  title: 'Modal title',
   closable: true,
+  content: '<p>Modal is working</p>',
   width: '400px',
   footerButtons: [
     {
-      text: 'View',
+      text: 'OK',
       type: 'primary',
       handler() {
         console.log('Prim btn clicked')
@@ -52,17 +54,12 @@ const houseModal = $.modal({
     },
 
     {
-      text: 'Close',
+      text: 'Cancel',
       type: 'danger',
       handler() {
-        houseModal.close()
+        console.log('Danger btn clicked')
+        modal.close()
       }
     },
   ]
 }); 
-
-document.addEventListener('click', e => {
-  e.preventDefault();
-  const btnType = e.target.dataset.btn;
-  btnType === "view" ? houseModal.open() : alert("Error")  
-})

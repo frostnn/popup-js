@@ -25,7 +25,7 @@ const toHTML = houses => `
       <img src="${houses.img}" class="card-img-top" alt="${houses.title}">
       <div class="card-body">
         <h5 class="card-title">${houses.title}</h5>
-          <a href="#" class="btn btn-primary" data-btn="view">view</a>
+          <a href="#" class="btn btn-primary">view</a>
           <a href="#" class="btn btn-danger">remove</a>
       </div>
     </div>
@@ -36,15 +36,16 @@ const render = () => {
   document.querySelector('#house').innerHTML = html;
 }
 
-render();
+render()
 
-const houseModal = $.modal({
-  title: 'Seven Kingdoms',
+const modal = $.modal({
+  title: 'Modal title',
   closable: true,
+  content: '<p>Modal is working</p>',
   width: '400px',
   footerButtons: [
     {
-      text: 'View',
+      text: 'OK',
       type: 'primary',
       handler() {
         console.log('Prim btn clicked')
@@ -52,17 +53,12 @@ const houseModal = $.modal({
     },
 
     {
-      text: 'Close',
+      text: 'Cancel',
       type: 'danger',
       handler() {
-        houseModal.close()
+        console.log('Danger btn clicked')
+        modal.close()
       }
     },
   ]
 }); 
-
-document.addEventListener('click', e => {
-  e.preventDefault();
-  const btnType = e.target.dataset.btn;
-  btnType === "view" ? houseModal.open() : alert("Error")  
-})

@@ -38,13 +38,14 @@ const render = () => {
 
 render();
 
-const houseModal = $.modal({
-  title: 'Seven Kingdoms',
+const modal = $.modal({
+  title: 'Modal title',
   closable: true,
+  content: '<p>Modal is working</p>',
   width: '400px',
   footerButtons: [
     {
-      text: 'View',
+      text: 'OK',
       type: 'primary',
       handler() {
         console.log('Prim btn clicked')
@@ -52,17 +53,17 @@ const houseModal = $.modal({
     },
 
     {
-      text: 'Close',
+      text: 'Cancel',
       type: 'danger',
       handler() {
-        houseModal.close()
+        console.log('Danger btn clicked')
+        modal.close()
       }
     },
   ]
 }); 
 
 document.addEventListener('click', e => {
-  e.preventDefault();
   const btnType = e.target.dataset.btn;
-  btnType === "view" ? houseModal.open() : alert("Error")  
+  btnType ==='text' ? console.log('text') : "err"  
 })
