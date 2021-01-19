@@ -68,7 +68,6 @@ document.addEventListener('click', e => {
   if(btnType === "view") {
     const houseId = house.find(fn => fn.id === id);
     houseModal.setContent(`
-    <h2 class="subtitle_module">${houseId.title}</h2>
     <p>${houseId.text}</p>
     `)
     houseModal.open();

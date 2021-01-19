@@ -25,7 +25,7 @@ const toHTML = houses => `
       <img src="${houses.img}" class="card-img-top" alt="${houses.title}">
       <div class="card-body">
         <h5 class="card-title">${houses.title}</h5>
-          <a href="#" class="btn btn-primary" data-btn="view" data-id="${houses.id}">view</a>
+          <a href="#" class="btn btn-primary" data-btn="view">view</a>
           <a href="#" class="btn btn-danger">remove</a>
       </div>
     </div>
@@ -64,16 +64,7 @@ const houseModal = $.modal({
 document.addEventListener('click', e => {
   e.preventDefault();
   const btnType = e.target.dataset.btn;
-  const id = +e.target.dataset.id;
   if(btnType === "view") {
-    const houseId = house.find(fn => fn.id === id);
-    houseModal.setContent(`
-    <h2 class="subtitle_module">${houseId.title}</h2>
-    <p>${houseId.text}</p>
-    `)
-    houseModal.open();
-    
-
+    houseModal.open()
   }
-  
 })

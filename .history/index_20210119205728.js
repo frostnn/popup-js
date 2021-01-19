@@ -64,16 +64,6 @@ const houseModal = $.modal({
 document.addEventListener('click', e => {
   e.preventDefault();
   const btnType = e.target.dataset.btn;
-  const id = +e.target.dataset.id;
-  if(btnType === "view") {
-    const houseId = house.find(fn => fn.id === id);
-    houseModal.setContent(`
-    <h2 class="subtitle_module">${houseId.title}</h2>
-    <p>${houseId.text}</p>
-    `)
-    houseModal.open();
-    
+  btnType === "view" ? houseModal.open() : '';
 
-  }
-  
 })

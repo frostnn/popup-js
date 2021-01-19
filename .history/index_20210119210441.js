@@ -66,14 +66,9 @@ document.addEventListener('click', e => {
   const btnType = e.target.dataset.btn;
   const id = +e.target.dataset.id;
   if(btnType === "view") {
+    /* houseModal.open(); */
     const houseId = house.find(fn => fn.id === id);
-    houseModal.setContent(`
-    <h2 class="subtitle_module">${houseId.title}</h2>
-    <p>${houseId.text}</p>
-    `)
-    houseModal.open();
-    
-
+    console.log(id,houseId);
   }
   
 })

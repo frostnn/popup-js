@@ -50,6 +50,7 @@
 
 .modale-window {
   width: 600px;
+ 
   border-radius: 5px;
   background: #fff;
   margin: 0 auto;
@@ -89,8 +90,4 @@
 
 .container {
   margin-top: 150px;
-}
-
-.subtitle_module {
-  text-align: center;
 }
