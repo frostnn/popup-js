@@ -1,4 +1,4 @@
-let house = [
+const house = [
   {
     id: 1,
     title: 'Fire and Blood',
@@ -14,7 +14,7 @@ let house = [
   {
     id: 3,
     title: 'Unbowed, Unbent, Unbroken',
-    img: 'https://c.wallhere.com/photos/67/7a/Game_of_Thrones_artwork_paper_coats_of_arms_House_Martell_sigils_crest-256083.jpg!d',
+    img: 'https://img3.goodfon.ru/original/1920x1080/5/78/german-style-game-of-thrones.jpg',
     text: 'The Martells are one of the great houses of Westeros, rulers of Dorne. Traditionally, the head of the house and members of his family are called "princes"and " princesses". On their coat of arms is a red sun pierced by a golden spear. The Martells motto is Unyielding, unyielding, unyielding. The Martells rule Dorne from Sunspear Castle.',
   },
 ]
@@ -22,11 +22,11 @@ let house = [
 const toHTML = houses => `
   <div class="col-4">
     <div class="card">
-      <img src="${houses.img}" class="card-img-top" alt="${houses.title}">
+      <img src="${houses.img }" class="card-img-top" alt="${houses.title}">
       <div class="card-body">
         <h5 class="card-title">${houses.title}</h5>
           <a href="#" class="btn btn-primary" data-btn="view" data-id="${houses.id}">view</a>
-          <a href="#" class="btn btn-danger" data-btn="remove" data-id="${houses.id}">remove</a>
+          <a href="#" class="btn btn-danger">remove</a>
       </div>
     </div>
   </div>
@@ -43,6 +43,8 @@ const houseModal = $.modal({
   closable: true,
   width: '400px',
   footerButtons: [
+
+
     {
       text: 'Close',
       type: 'danger',
@@ -53,28 +55,19 @@ const houseModal = $.modal({
   ]
 }); 
 
-
 document.addEventListener('click', e => {
   e.preventDefault();
   const btnType = e.target.dataset.btn;
   const id = +e.target.dataset.id;
-  const houseId = house.find(fn => fn.id === id);
   if(btnType === "view") {
+    const houseId = house.find(fn => fn.id === id);
     houseModal.setContent(`
     <h2 class="subtitle_module">${houseId.title}</h2>
     <p>${houseId.text}</p>
     `)
     houseModal.open();
-  }else if(btnType === "remove") {
-    $.confirm({
-      title:  'Are you sure?',
-      content:  `<p></p>You delete ${houseId.title}</p>`
-    }).then(()=>{
-      house = house.filter( fn => fn.id !== id);
-      render();
-    }).catch(()=>{
-        console.log('NO')
-    })
+    
+
   }
   
 })

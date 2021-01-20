@@ -1,4 +1,4 @@
-let house = [
+const house = [
   {
     id: 1,
     title: 'Fire and Blood',
@@ -53,6 +53,28 @@ const houseModal = $.modal({
   ]
 }); 
 
+const confirmModal = $.modal({
+  title: 'Are you sure?',
+  closable: true,
+  width: '400px',
+  footerButtons: [
+    {
+      text: 'OK',
+      type: 'secondary',
+      handler() {
+        confirmModal.close()
+      }
+    },
+
+    {
+      text: 'NO',
+      type: 'danger',
+      handler() {
+        confirmModal.close()
+      }
+    },
+  ]
+}); 
 
 document.addEventListener('click', e => {
   e.preventDefault();
@@ -66,15 +88,10 @@ document.addEventListener('click', e => {
     `)
     houseModal.open();
   }else if(btnType === "remove") {
-    $.confirm({
-      title:  'Are you sure?',
-      content:  `<p></p>You delete ${houseId.title}</p>`
-    }).then(()=>{
-      house = house.filter( fn => fn.id !== id);
-      render();
-    }).catch(()=>{
-        console.log('NO')
-    })
+    confirmModal.setContent(`
+    <p>You delete ${houseId.title}</p>
+    `)
+    confirmModal.open();
   }
   
 })

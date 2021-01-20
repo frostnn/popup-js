@@ -1,4 +1,4 @@
-let house = [
+const house = [
   {
     id: 1,
     title: 'Fire and Blood',
@@ -14,7 +14,7 @@ let house = [
   {
     id: 3,
     title: 'Unbowed, Unbent, Unbroken',
-    img: 'https://c.wallhere.com/photos/67/7a/Game_of_Thrones_artwork_paper_coats_of_arms_House_Martell_sigils_crest-256083.jpg!d',
+    img: 'https://img3.goodfon.ru/original/1920x1080/5/78/german-style-game-of-thrones.jpg',
     text: 'The Martells are one of the great houses of Westeros, rulers of Dorne. Traditionally, the head of the house and members of his family are called "princes"and " princesses". On their coat of arms is a red sun pierced by a golden spear. The Martells motto is Unyielding, unyielding, unyielding. The Martells rule Dorne from Sunspear Castle.',
   },
 ]
@@ -53,6 +53,28 @@ const houseModal = $.modal({
   ]
 }); 
 
+const confirmModal = $.modal({
+  title: 'Are you sure?',
+  closable: true,
+  width: '400px',
+  footerButtons: [
+    {
+      text: 'OK',
+      type: 'primary',
+      handler() {
+        confirmModal.close()
+      }
+    },
+
+    {
+      text: 'NO',
+      type: 'danger',
+      handler() {
+        confirmModal.close()
+      }
+    },
+  ]
+}); 
 
 document.addEventListener('click', e => {
   e.preventDefault();
@@ -66,15 +88,8 @@ document.addEventListener('click', e => {
     `)
     houseModal.open();
   }else if(btnType === "remove") {
-    $.confirm({
-      title:  'Are you sure?',
-      content:  `<p></p>You delete ${houseId.title}</p>`
-    }).then(()=>{
-      house = house.filter( fn => fn.id !== id);
-      render();
-    }).catch(()=>{
-        console.log('NO')
-    })
+    
+    confirmModal.open()
   }
   
 })

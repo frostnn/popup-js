@@ -1,4 +1,4 @@
-let house = [
+const house = [
   {
     id: 1,
     title: 'Fire and Blood',
@@ -68,12 +68,7 @@ document.addEventListener('click', e => {
   }else if(btnType === "remove") {
     $.confirm({
       title:  'Are you sure?',
-      content:  `<p></p>You delete ${houseId.title}</p>`
-    }).then(()=>{
-      house = house.filter( fn => fn.id !== id);
-      render();
-    }).catch(()=>{
-        console.log('NO')
+      content:  `You delete ${houseId.title}`
     })
   }
   

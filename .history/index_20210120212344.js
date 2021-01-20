@@ -71,7 +71,7 @@ document.addEventListener('click', e => {
       content:  `<p></p>You delete ${houseId.title}</p>`
     }).then(()=>{
       house = house.filter( fn => fn.id !== id);
-      render();
+        console.log('OK')
     }).catch(()=>{
         console.log('NO')
     })
